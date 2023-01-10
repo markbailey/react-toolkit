@@ -1,4 +1,5 @@
 export { default as useClickOutside } from './hooks/useClickOutside';
+export { default as useCookie } from './hooks/useCookie';
 export { default as useDebounce } from './hooks/useDebounce';
 export { default as useEventListener } from './hooks/useEventListener';
 export { default as useMediaQuery } from './hooks/useMediaQuery';
