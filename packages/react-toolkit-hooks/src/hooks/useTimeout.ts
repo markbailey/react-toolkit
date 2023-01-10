@@ -1,8 +1,4 @@
-import {
-  useCallback,
-  useEffect,
-  useRef,
-} from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 
 const { setTimeout, clearTimeout } = window;
 
@@ -12,29 +8,20 @@ const { setTimeout, clearTimeout } = window;
 // params: {function} callback - This function to trigger when timeout elapses.
 // params: {number} delay - The value in milleseconds to set as the timeout.
 function useTimeout(callback: () => void, delay: number) {
-  const callbackRef = useRef(callback);
   const timeoutRef = useRef<number>();
 
-  const set = useCallback(() => {
-    timeoutRef.current = setTimeout(callbackRef.current, delay);
-  }, [delay]);
-
   const clear = useCallback(() => clearTimeout(timeoutRef.current), []);
-  const reset = useCallback(() => {
+  const set = useCallback(() => {
     clear();
-    set();
-  }, [clear, set]);
-
-  useEffect(() => {
-    callbackRef.current = callback;
-  }, [callback]);
+    timeoutRef.current = setTimeout(callback, delay);
+  }, [delay, callback]);
 
   useEffect(() => {
     set();
     return clear;
   }, [set, clear]);
 
-  return { reset, clear };
+  return Object.freeze({ reset: set, clear });
 }
 
 export default useTimeout;
