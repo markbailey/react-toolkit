@@ -1,5 +1,5 @@
 {
-  "name": "react-toolkit-hooks",
+  "name": "@markbailey/react-toolkit-hooks",
   "version": "0.0.1",
   "description": "A set of helpful hooks for speeding up developement",
   "main": "dist/cjs/index.js",
@@ -16,6 +16,9 @@
   "keywords": [],
   "author": "Mark Bailey",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.18.13",
