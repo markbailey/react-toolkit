@@ -1,5 +1,5 @@
 {
-  "name": "react-toolkit-core",
+  "name": "@markbailey/react-toolkit-core",
   "version": "0.0.1",
   "description": "Core library for the React Toolkit suite",
   "main": "dist/cjs/index.js",
