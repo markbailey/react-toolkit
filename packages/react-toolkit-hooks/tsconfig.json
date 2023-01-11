@@ -19,5 +19,5 @@
     "emitDeclarationOnly": true,
     "resolveJsonModule": true
   },
-  "exclude": ["src/stories/**/*"]
+  "exclude": ["src/stories/**/*", "src/**/*.test.ts"]
 }
