@@ -2,13 +2,13 @@ import { act, renderHook, waitFor } from '@testing-library/react';
 import useTimeout from '../hooks/useTimeout';
 
 describe('useTimeout', () => {
-  test('Verify the timeout triggers the callback', async () => {
+  it('Verify the timeout triggers the callback', async () => {
     const timeoutFn = jest.fn();
     renderHook(() => useTimeout(timeoutFn, 100));
     await waitFor(() => expect(timeoutFn).toBeCalled());
   });
 
-  test('Verify the timeout gets cleared', async () => {
+  it('Verify the timeout gets cleared', async () => {
     const timeoutFn = jest.fn();
     const { result } = renderHook(() => useTimeout(timeoutFn, 1000));
     const { clear } = result.current;
@@ -17,7 +17,7 @@ describe('useTimeout', () => {
     await waitFor(() => expect(timeoutFn).not.toHaveBeenCalled());
   });
 
-  test('Verify the timeout gets reset', async () => {
+  it('Verify the timeout gets reset', async () => {
     const timeoutFn = jest.fn();
     const { result } = renderHook(() => useTimeout(timeoutFn, 500));
     const { reset } = result.current;
